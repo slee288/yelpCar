@@ -1,0 +1,92 @@
+body {
+    background-color: #000;
+}
+
+#landing-header {
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    padding-top: 40vh;
+}
+
+#landing-header h1 {
+    color: #fff;
+}
+
+.slideshow {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    list-style: none;    /*this one removes the bullet points*/
+    margin: 0;
+    padding: 0;
+}
+
+.slideshow li {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50% 50%;    /*centers the image*/
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 50s linear infinite;
+    /*animation
+        fade images in and out
+        tell animation to last 50 seconds
+        animation is the same speed till the end
+        loop infinite times*/
+}
+
+.slideshow li:nth-child(1) {
+    background-image: url(http://postfiles1.naver.net/20140112_32/mutnam21_1389491096383tWmqg_JPEG/2014_mclaren_p1_3-wallpaper-2560x1600.jpg?type=w2);
+}
+
+.slideshow li:nth-child(2) {
+    background-image: url(http://postfiles3.naver.net/20140112_194/mutnam21_13894910972543LFns_JPEG/the_crew_2014-wallpaper-2560x1600.jpg?type=w2);
+    animation-delay: 10s;
+}
+
+.slideshow li:nth-child(3) {
+    background-image: url(https://c.wallhere.com/photos/a6/7f/Lada_Raven_car_SuperAuto_Ruso_sports_car_vehicle_black_cars-47021.jpg!d);
+    animation-delay: 20s;
+}
+
+.slideshow li:nth-child(4) {
+    background-image: url(http://file1.bobaedream.co.kr/multi_image/import/2014/01/07/01/BQQ52cad4cadb136.jpg);
+    animation-delay: 30s;
+}
+
+.slideshow li:nth-child(5) {
+    background-image: url(http://postfiles13.naver.net/20140112_252/mutnam21_1389491098228QkSf9_JPEG/mercedes_benz_amg_vision_gran_turismo_concept-wallpaper-2560x1600.jpg?type=w2);
+    animation-delay: 40s;
+}
+
+@keyframes imageAnimation {
+    0% {
+        opacity: 0;
+        animation-timing-function: ease-in;
+    }
+    10% {
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+    20% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+    }
+}
+
+/*older browser support - .no-cssanimations class added by modernizer*/
+/*browser that doesn't support animation will have just one picture for background*/
+.no-cssanimations .slideshow li {
+    opacity: 1;
+}

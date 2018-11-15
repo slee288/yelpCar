@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+
+<div class="container">
+      
+    <header class="jumbotron">
+        <div class="container">
+            <h1>Welcome To YelpCar!</h1>
+            <p>View your dream car for rental!</p>
+            <p>
+             <a class="btn btn-primary btn-large" href="/cars/new">Add New Car</a>
+            </p>
+        </div>
+    </header>
+    
+    <div class="row text-center" syle="display:flex; flex-wrap:wrap;">
+
+        <% cars.forEach(function(car){ %>
+        
+            <!-- These classes are for responsive layout -->
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+
+                <!-- Have to put ejs brackets when putting string in imgsrc tag -->
+                    <img src="<%= car.image %>">
+                    <div class="caption">
+                        <h4><%= car.name %></h4>
+                    </div>
+                    <p>
+                        <a href="/cars/<%= car._id %>" class="btn btn-primary">More Info</a>
+                    </p>
+                </div>
+            </div>
+        <% }); %>
+        
+    </div>
+        
+</div>
+
+
+<% include ../partials/footer %>
